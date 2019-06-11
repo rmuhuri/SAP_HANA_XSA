@@ -8,6 +8,9 @@ modules:
    path: SAP
    requires:
     - name: hdi_SAP
+      properties:
+        TARGET_CONTAINER: ~{hdi-container-name}
+    - name: CC_SYSTEM
 
 
  - name: SAP_R3
@@ -21,6 +24,10 @@ resources:
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
+ - name: CC_SYSTEM
+   type: org.cloudfoundry.existing-service
+   parameters:
+     service-name: CC_SYSTEM
 
  - name: hdi_SAP_R3
    properties:
