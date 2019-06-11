@@ -1,0 +1,29 @@
+ID: SAP_HANA_XSA
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: SAP
+   type: hdb
+   path: SAP
+   requires:
+    - name: hdi_SAP
+
+
+ - name: SAP_R3
+   type: hdb
+   path: SAP_R3
+   requires:
+    - name: hdi_SAP_R3
+
+resources:
+ - name: hdi_SAP
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ - name: hdi_SAP_R3
+   properties:
+      hdi-container-name_2: ${service-name}
+   type: com.sap.xs.hdi-container
+
